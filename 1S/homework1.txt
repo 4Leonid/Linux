@@ -1,0 +1,18 @@
+leo@leo-LINUX:~$ history
+    1  sudo apt update
+    2  clear
+    3  sudo apt install mc
+    4  mc
+    5  clear
+    6  sudo apt install openss
+    7  sudo apt install openssh-server
+    8  ip a
+    9  mc
+   10  clear
+   11  sudo apt update
+   12  sudo apt install gcc make perl
+   13  sudo reboot
+   14  sudo usermod -aG vboxsf leo
+   15  sudo reboot
+   16  history
+leo@leo-LINUX:~$ 
