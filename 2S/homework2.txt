@@ -1,0 +1,213 @@
+ 1  sudo apt update
+    2  clear
+    3  sudo apt install mc
+    4  mc
+    5  clear
+    6  sudo apt install openss
+    7  sudo apt install openssh-server
+    8  ip a
+    9  mc
+   10  clear
+   11  sudo apt update
+   12  sudo apt install gcc make perl
+   13  sudo reboot
+   14  sudo usermod -aG vboxsf leo
+   15  sudo reboot
+   16  history
+   17  echo Hello world
+   18  pwd
+   19  cd /
+   20  cd home/
+   21  pwd
+   22  cd student
+   23  cd 
+   24  cd ..
+   25  cd
+   26  cd ..
+   27  cd .
+   28  cd ~
+   29  pwd
+   30  cd -
+   31  ls
+   32  cd ~
+   33  ls -a
+   34  ls - l
+   35  ls -l
+   36  ls -a-l
+   37  ls -a -l
+   38  ls -al
+   39  ls
+   40  ls -al
+   41  ls
+   42  ls -ll
+   43  ls /var
+   44  ls /var -l
+   45  mkdir geekbrains
+   46  ls
+   47  mkdir Geekbrains
+   48  ls
+   49  ls -l
+   50  cd geekbrains/
+   51  ls
+   52  mkdir dir1 dir2 dir3
+   53  ls
+   54  mkdir 22/33/44
+   55  mkdir 22/33/44 -p
+   56  ls
+   57  cd 22/
+   58  ls
+   59  cd 33/
+   60  ls
+   61  cd 44/
+   62  cd ../../../
+   63  touch file1.txt
+   64  ls
+   65  cat> file2.txt
+   66  ls
+   67  echo > file3
+   68  ll
+   69  > file4.txt
+   70  ll
+   71  cp file1.txt dir1/
+   72  ls
+   73  ls dir1
+   74  tree
+   75  sudo apt install tree
+   76  tree
+   77  cp dir/ dir2/ -r
+   78  cp dir1/ dir2/ -r
+   79  tree
+   80  clear
+   81  tree
+   82  mv *.txt 22/33
+   83  tree
+   84  mv 22 dir2
+   85  tree
+   86  ls
+   87  mv file3 file33.txt
+   88  ls
+   89  rm file33.txt 
+   90  ll
+   91  rm dir1 -r
+   92  ll
+   93  touch f1 f2 f3
+   94  ll
+   95  rm *
+   96  ll
+   97  rm * -r
+   98  ll
+   99  tree
+  100  more --help
+  101  man more
+  102  whatis more
+  103  cd
+  104  ll
+  105  nano
+  106  ll
+  107  ls
+  108  ll
+  109  more newfile.txt 
+  110  nano newfile.txt 
+  111  more newfile.txt 
+  112  nano newfile.txt -B
+  113  ls
+  114  whatis nano
+  115  whatis vim
+  116  vim
+  117  sudo apt install vim
+  118  sudo apt install vim-runtime
+  119  vimtutor
+  120  history
+  121  cd lwc
+  122  ls
+  123  mkdir lws
+  124  ls
+  125  cd lws/
+  126  echo hi all > original_file
+  127  ls
+  128  ln original_file hardlink
+  129  ls
+  130  ln -s original_file softlink
+  131  cp original_file copy
+  132  ll
+  133  more original_file 
+  134  more softlink 
+  135  more hardlink 
+  136  more copy
+  137  echo Hello more copy! >> original_file 
+  138  ll
+  139  more original_file 
+  140  more copy 
+  141  more hardlink 
+  142  more softlink 
+  143  clear
+  144  ll
+  145  mv original_file o_f
+  146  ll
+  147  more o_f 
+  148  more hardlink 
+  149  more copy 
+  150  more softlink 
+  151  mv o_f original_file
+  152  more softlink 
+  153  clear
+  154  ll
+  155  rm original_file 
+  156  ll
+  157  more softlink 
+  158  rm *
+  159  ls
+  160  history
+  161  echo hi all > original_file
+  162  ln original_file hardlink
+  163  ln -s original_file softlink
+  164  cp original_file copy
+  165  ls
+  166  echo Hello more copy! >> original_file 
+  167  more original_file 
+  168  ll
+  169  ll -i
+  170  history
+  171  cd
+  172  mkdir homework2
+  173  ls
+  174  cd homework2/
+  175  ls
+  176  mkdir students
+  177  ls
+  178  rm students/ 
+  179  rm students/ -r
+  180  ls
+  181  mkdir students mentors
+  182  ls
+  183  touch students_list.txt
+  184  ls
+  185  mv students_list.txt students/
+  186  tree
+  187  touch mentors_list.txt
+  188  mv mentors_list.txt mentors
+  189  ls
+  190  tree
+  191  cd students/
+  192  open students_list.txt 
+  193  nano students_list.txt 
+  194  cd ..
+  195  cd mentors/
+  196  nano mentors_list.txt 
+  197  mv mentors_list.txt students/
+  198  pwd
+  199  mv mentors_list.txt /home/leo/homework2/students
+  200  ls
+  201  cd ..
+  202  ls
+  203  cd students/
+  204  ls
+  205  cd ..
+  206  ls
+  207  ls students/
+  208  rm mentors/ -r
+  209  ls
+  210  mv students/ students_and_mentors
+  211  ls
+  212  rm students_and_mentors/ -r
+  213  history 
