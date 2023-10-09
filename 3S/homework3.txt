@@ -1,0 +1,47 @@
+366  sudo useradd -s /bin/bash -d /home/user11 -m user11
+  367  su user11
+  368  sudo adduser user22
+  369  tail /etc/passwd
+  370  tail /etc/group
+  371  whoami
+  372  sudo tail /etc/shadow
+  373  sudo passwd user11
+  374  sudo tail /etc/shadow
+  375  sudo userdel user11 -r
+  376  tail /etc/passwd
+  377  tail /etc/group
+  378  tail /etc/shadow
+  379  su user22
+  380  whoami
+  381  tail /etc/shadow
+  382  sudo useradd -s /bin/bash -d /home/manager1 -m manager1
+  383  sudo useradd -s /bin/bash -d /home/manager2 -m manager2
+  384  tail /etc/group
+  385  sudo useradd -s /bin/bash -d /home/tester1 -m tester1
+  386  sudo useradd -s /bin/bash -d /home/tester2 -m tester2
+  387  sudo groupadd managers
+  388  sudo groupadd testers
+  389  tail /etc/group
+  390  sudo usermod -aG testers tester1
+  391  sudo usermod -aG testers tester2
+  392  sudo usermod -aG managers manager1
+  393  sudo usermod -aG managers manager2
+  394  tail /etc/group
+  395  groups tester1
+  396  sudo usermod -G "" tester1
+  397  sudo usermod -aG managers tester1
+  398  groups tester1
+  399  sudo usermode -aG testers manager1
+  400  sudo usermod -aG testers manager1
+  401  groups manager1
+  402  sudo deluser manager1 testers
+  403  tail /etc/group
+  404  sudo useradd -s /bin/bash -d /home/ladmin -m ladmin
+  405  groups ladmin
+  406  sudo usermod -aG sudo ladmin
+  407  groups ladmin
+  408  groupadd developers
+  409  groups
+  410  tail /etc/group
+  411  groupadd developers
+  412  history
