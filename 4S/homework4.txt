@@ -1,0 +1,29 @@
+sudo apt update
+  463  sudo apt install -y nginx
+  464  dpkg -l nginx
+  465  sudo apt remove -y nginx
+  466  dpkg -l nginx
+  467  snap list
+  468  snap search postman
+  469  sudo snap install postman
+  470  snap list
+  471  postman
+  472  history
+  473  sudo snap remove postman
+  474  nano test.txt
+  475  crontab -e
+  476  ls -l
+  477  ll
+  478  cd home/
+  479  cd -
+  480  cd
+  481  cd ..
+  482  ls -l
+  483  cd
+  484  ll
+  485  cd lws/
+  486  ls -l
+  487  open test
+  488  cd ..
+  489  open test
+  490  history
