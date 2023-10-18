@@ -1,0 +1,140 @@
+sudo apt update
+  463  sudo apt install -y nginx
+  464  dpkg -l nginx
+  465  sudo apt remove -y nginx
+  466  dpkg -l nginx
+  467  snap list
+  468  snap search postman
+  469  sudo snap install postman
+  470  snap list
+  471  postman
+  472  history
+  473  sudo snap remove postman
+  474  nano test.txt
+  475  crontab -e
+  476  ls -l
+  477  ll
+  478  cd home/
+  479  cd -
+  480  cd
+  481  cd ..
+  482  ls -l
+  483  cd
+  484  ll
+  485  cd lws/
+  486  ls -l
+  487  open test
+  488  cd ..
+  489  open test
+  490  history
+  491  date
+  492  cd etc/
+  493  cd /etc
+  494  ll
+  495  sudo nano /etc/hosts
+  496  sudo iptables -L -nv
+  497  sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+  498  sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+  499  sudo iptables -P INPUT DROP
+  500  sudo iptables -L -nv
+  501  sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+  502  sudo iptables -L -nv -t nat
+  503  sudo iptables -A INPUT -p tcp -s 3.4.5.6 -j DROP
+  504  sudo iptables -L -nv
+  505  mc
+  506  ps -A | grep mc
+  507  kill -9 3026
+  508  ps -A | grep mc
+  509  history
+  510  cd
+  511  sudo apt update
+  512  sudo apt install nginx -y
+  513  nginx --help
+  514  systemctl status nginx
+  515  ss -ntlp
+  516  sudo ss -ntlp
+  517  cd /etc/nginx
+  518  ll
+  519  tree
+  520  nano nginx.conf 
+  521  sudo nano nginx.conf 
+  522  sudo nginx -t
+  523  sudo systemctl reload nginx
+  524  nano sites-available/default 
+  525  sudo apt install apache2 -y
+  526  systemctl status apache2
+  527  sudo ss -ntlp
+  528  sudo systemctl stop nginx
+  529  sudo ss -ntlp
+  530  sudo systemctl status nginx
+  531  sudo systemctl start apache2
+  532  sudo systemctl status apache2
+  533  sudo ss -ntpl
+  534  cd /etc/apache2/
+  535  ll
+  536  tree
+  537  ll
+  538  nano ports.conf 
+  539  nano apache2.conf 
+  540  sudo apachectl -t
+  541  sudo nano ports.conf 
+  542  sudo apachectl -t
+  543  sudo systemctl reload apache2
+  544  sudo ss -ntlp
+  545  sudo nano sites-enabled/000-default.conf 
+  546  sudo apachectl -t
+  547  sudo systemctl reload apache2
+  548  sudo systemctl start nginx
+  549  sudo systemctl status nginx
+  550  sudo ss -ntpl
+  551  sudo /etc/nginx/sites-enabled/default
+  552  sudo /etc/nginx/
+  553  sudo /etc/nginx/sites-enabled/
+  554  cd /etc/nginx/sites-enabled/default
+  555  cd /etc/nginx/sites-enabled/
+  556  ll
+  557  sudo nano /etc/nginx/sites-enabled/default 
+  558  sudo nginx -t
+  559  cd /etc/apache2/
+  560  sudo nginx -t
+  561  sudo nano /etc/nginx/sites-enabled/default 
+  562  sudo nginx -t
+  563  sudo nano /etc/nginx/sites-enabled/default 
+  564  sudo nginx -t
+  565  sudo nano /etc/nginx/sites-enabled/default 
+  566  sudo nginx -t
+  567  sudo nano /etc/nginx/sites-enabled/default 
+  568  sudo nginx -t
+  569  sudo nano /etc/nginx/sites-enabled/default 
+  570  sudo nginx -t
+  571  sudo systemctl reload nginx
+  572  sudo ss -ntlp
+  573  clear
+  574  sudo apt install libapache2-mod-php php -y
+  575  cd /etc/apache2/mods-enabled/
+  576  ll
+  577  nano php8.1.conf 
+  578  cd /var/www/html/
+  579  ll
+  580  sudo su
+  581  apt install php-fpm -y
+  582  sudo apt install php-fpm -y
+  583  cd /etc/php/
+  584  ll
+  585  cd 8.1/
+  586  ll
+  587  tree
+  588  cd fpm/pool.d/
+  589  ll
+  590  nano www.conf 
+  591  cd /etc/nginx/sites-enabled/
+  592  ll
+  593  sudo nano default 
+  594  sudo nginx -t
+  595  systemctl status php*
+  596  sudo systemctl reload nginx
+  597  sudo apt install mysql-server -y
+  598  systemctl status mysql
+  599  sudo ss -ntlp
+  600  sudo mysql -u root -p
+  601  history
