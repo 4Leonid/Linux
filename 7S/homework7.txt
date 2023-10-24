@@ -1,0 +1,33 @@
+
+
+sudo apt update
+sudo apt install docker.io -y
+sudo docker images
+sudo docker ps
+sudo docker run ubuntu
+sudo docker ps
+sudo docker ps -a
+sudo docker run -it ubuntu
+mkdir homework7
+cd h0mew0rk7
+nano Dockerfile
+FROM ubuntu
+ARG DEBIAN_FRONTEND=noninteractive
+MAINTAINER leo 
+RUN apt-get update
+RUN apt-get install nginx php8.1-fpm -y
+COPY index.html /var/www/html/index.html
+COPY info.php /var/www/html/index.php
+COPY default /etc/nginx/sites-available/default
+COPY run.sh /app/run.sh
+EXPOSE 80
+CMD /app/run.sh
+cat run.sh
+service php8.1-fpm start
+/usr/sbin/nginx -g "daemon off;"
+sudo docker build -t my_nginx_php8 .
+sudo docker images
+sudo docker run -d -p 8888:80 my_nginx_php8
+sudo docker ps
+http://localhost:8888/index.html
+http://localhost:8888/index.php
