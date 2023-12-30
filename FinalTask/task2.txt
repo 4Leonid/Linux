@@ -1,0 +1,14 @@
+###############################################################################
+# Создать директорию, переместить файл туда.
+###############################################################################
+#
+
+# Создадим директорию
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % mkdir directory
+4leo@MacBook-Pro-Leo FinalTask %
+
+# Переместим файл
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % mv human_friends directory/
+4leo@MacBook-Pro-Leo FinalTask %
