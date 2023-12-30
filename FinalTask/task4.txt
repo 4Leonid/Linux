@@ -1,0 +1,89 @@
+###############################################################################
+# Установить и удалить deb-пакет с помощью dpkg.
+###############################################################################
+#
+
+# Установим Geany из deb-пакета
+4leo@MacBook-Pro-Leo FinalTask % 
+4leo@MacBook-Pro-Leo FinalTask % sudo dpkg -i geany_1.38-1+b1_amd64.deb 
+[sudo] password for pavel: 
+Selecting previously unselected package geany.
+(Reading database ... 185289 files and directories currently installed.)
+Preparing to unpack geany_1.38-1+b1_amd64.deb ...
+Unpacking geany (1.38-1+b1) ...
+dpkg: dependency problems prevent configuration of geany:
+ geany depends on geany-common (= 1.38-1); however:
+  Package geany-common is not installed.
+
+dpkg: error processing package geany (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for libc-bin (2.35-0ubuntu3.5) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+Errors were encountered while processing:
+ geany
+4leo@MacBook-Pro-Leo FinalTask % 
+
+
+# Установим нужные зависимости
+4leo@MacBook-Pro-Leo FinalTask % 
+4leo@MacBook-Pro-Leo FinalTask % sudo apt -f install
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Correcting dependencies... Done
+The following additional packages will be installed:
+  geany-common
+The following NEW packages will be installed:
+  geany-common
+0 upgraded, 1 newly installed, 0 to remove and 42 not upgraded.
+1 not fully installed or removed.
+Need to get 2 057 kB of archives.
+After this operation, 8 749 kB of additional disk space will be used.
+Do you want to continue? [Y/n] 
+Get:1 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 geany-common all 1.38-1 [2 057 kB]
+Fetched 2 057 kB in 1s (2 771 kB/s)  
+Selecting previously unselected package geany-common.
+(Reading database ... 185313 files and directories currently installed.)
+Preparing to unpack .../geany-common_1.38-1_all.deb ...
+Unpacking geany-common (1.38-1) ...
+Setting up geany-common (1.38-1) ...
+Setting up geany (1.38-1+b1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.5) ...
+4leo@MacBook-Pro-Leo FinalTask % 
+
+
+# Удалим пакет geany
+4leo@MacBook-Pro-Leo FinalTask % 
+4leo@MacBook-Pro-Leo FinalTask % sudo dpkg -r geany
+(Reading database ... 185598 files and directories currently installed.)
+Removing geany (1.38-1+b1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.5) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+4leo@MacBook-Pro-Leo FinalTask %
+
+
+# Удалим лишние пакеты
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % sudo apt autoremove
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  geany-common
+0 upgraded, 0 newly installed, 1 to remove and 42 not upgraded.
+After this operation, 8 749 kB disk space will be freed.
+Do you want to continue? [Y/n] 
+(Reading database ... 185575 files and directories currently installed.)
+Removing geany-common (1.38-1) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+4leo@MacBook-Pro-Leo FinalTask %
+
+
+
