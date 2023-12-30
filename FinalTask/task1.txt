@@ -1,0 +1,48 @@
+###############################################################################
+# Используя команду cat в терминале операционной системы Linux,
+# создать два файла Домашние животные (заполнив файл собаками, кошками,
+# хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+# ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+# Переименовать файл, дав ему новое имя (Друзья человека).
+###############################################################################
+#
+# Создадим файл Домашние животные
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % cat > pets
+собаки
+кошки
+хомяки
+^C
+4leo@MacBook-Pro-Leo FinalTask %
+
+# Создадим файл Вьючные животные
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % cat > pack_animals
+лошади
+верблюды
+ослы
+^C
+4leo@MacBook-Pro-Leo FinalTask %
+
+# Обединим файлы
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % cat pets pack_animals > new_file
+
+# Посмотрим содержимое созданного файла
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % cat new_file 
+собаки
+кошки
+хомяки
+лошади
+верблюды
+ослы
+4leo@MacBook-Pro-Leo FinalTask %
+
+# Переименуем новый файл
+4leo@MacBook-Pro-Leo FinalTask %
+4leo@MacBook-Pro-Leo FinalTask % mv new_file human_friends
+4leo@MacBook-Pro-Leo FinalTask % 
+
+
+
