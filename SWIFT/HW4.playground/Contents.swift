@@ -28,17 +28,13 @@ struct Pizza {
   let doughWidth: String
 }
 
-let pizzaOne = Pizza(price: 20, pizzaType: .peperoni, toppingsType: [.olives, .onion], doughWidth: "wide")
-let pizzaTwo = Pizza(price: 40, pizzaType: .carbonara, toppingsType: [.parmezan, .schreems], doughWidth: "thing")
-let pizzaThree = Pizza(price: 60, pizzaType: .capriccioza, toppingsType: [.schreems, .parmezan, .onion, .olives], doughWidth: "thing")
-
 // Создать класс пиццерии, добавить массив с возможными пиццами. Переменная с массивом должна быть приватной. Массив задается в инициализаторе.
 
 class PizzaRestaurant {
   private var pizzaList: [Pizza]
   
-  init() {
-    pizzaList = [pizzaOne, pizzaTwo, pizzaThree]
+  init(pizzaList: [Pizza]) {
+    self.pizzaList = pizzaList
   }
   // Написать в классе пиццерии функции для добавления новой пиццы и для получения всех доступных пицц.
   func add(newPizza: Pizza) {
@@ -50,8 +46,13 @@ class PizzaRestaurant {
   }
 }
 
+
+let pizzaOne = Pizza(price: 20, pizzaType: .peperoni, toppingsType: [.olives, .onion], doughWidth: "wide")
+let pizzaTwo = Pizza(price: 40, pizzaType: .carbonara, toppingsType: [.parmezan, .schreems], doughWidth: "thing")
+let pizzaThree = Pizza(price: 60, pizzaType: .capriccioza, toppingsType: [.schreems, .parmezan, .onion, .olives], doughWidth: "thing")
+
 //  Создать экземпляр класса пиццерии и добавить в него несколько пицц.
-let firstPizzaRestaurant = PizzaRestaurant()
+let firstPizzaRestaurant = PizzaRestaurant(pizzaList: [])
 firstPizzaRestaurant.add(newPizza: pizzaOne)
 firstPizzaRestaurant.add(newPizza: pizzaOne)
 firstPizzaRestaurant.add(newPizza: pizzaTwo)
