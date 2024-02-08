@@ -83,16 +83,12 @@ extension PizzaRestaurant: WorkingStatus {
 }
 
 // 5.  Написать функцию, в которой происходит вычитание одного числа из другого. Функция должна работать и с Int, и с Double.Функция должна возвращать результат вычитания
-func subtract(_ numberOne: Double, _ numberTwo: Double) -> Double {
-  return numberOne - numberTwo
+func subtract<T: Numeric>(_ numberOne: T, _ numberTwo: T) -> T {
+  numberOne - numberTwo
 }
 
-func subtract(_ numberOne: Int, _ numberTwo: Int) -> Int {
-   numberOne - numberTwo
-}
+let resultOne = subtract(20.5, 15.4)
+let resultTwo = subtract(10, 4)
 
-let resultOne = subtract(4, 7)
 print(resultOne)
-
-let resultTwo = subtract(6, 4)
 print(resultTwo)
