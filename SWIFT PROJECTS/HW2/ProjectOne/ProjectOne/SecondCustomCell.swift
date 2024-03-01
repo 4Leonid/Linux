@@ -13,6 +13,7 @@ final class SecondCustomCell: UITableViewCell {
     let element = UIImageView()
     let image = UIImage(systemName: "person.3")
     element.image = image
+    element.contentMode = .scaleAspectFit
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()

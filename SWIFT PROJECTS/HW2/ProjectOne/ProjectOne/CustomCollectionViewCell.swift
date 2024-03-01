@@ -15,6 +15,7 @@ final class CustomCollectionViewCell: UICollectionViewCell {
     let personImage = UIImage(systemName: "person")
     let element = UIImageView()
     element.image = personImage
+    element.contentMode = .scaleAspectFit
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()
