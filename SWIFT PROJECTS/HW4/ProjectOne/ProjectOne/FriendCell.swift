@@ -13,6 +13,8 @@ final class FriendCell: UITableViewCell {
     let image = UIImage(systemName: "person")
     let element = UIImageView()
     element.image = image
+    element.layer.cornerRadius = 25
+    element.clipsToBounds = true 
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()

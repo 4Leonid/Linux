@@ -17,21 +17,29 @@ final class TabBarController: UITabBarController {
 
 extension TabBarController {
   func setViews() {
-    let firstVC = FriendTableViewController()
-    firstVC.tabBarItem.title = "Friends"
-    firstVC.tabBarItem.image = UIImage(systemName: "person")
-    firstVC.navigationItem.title = "Friends"
+    let friendVC = UINavigationController(rootViewController: FriendTableViewController())
+    friendVC.navigationItem.title = "Friends"
+    
+    friendVC.tabBarItem.title = "Friends"
+    friendVC.navigationItem.title = "Friends"
+    friendVC.tabBarItem.image = UIImage(systemName: "person")
+    friendVC.navigationBar.prefersLargeTitles = true
     
     
-    let secondVC = GroupTableViewController()
-    secondVC.tabBarItem.title = "Groups"
-    secondVC.tabBarItem.image = UIImage(systemName: "person.3")
+    let groupVC = UINavigationController(rootViewController: GroupTableViewController())
+    groupVC.tabBarItem.title = "Groups"
+    groupVC.navigationItem.title = "Groups"
+    groupVC.tabBarItem.image = UIImage(systemName: "person.3")
+    groupVC.navigationBar.prefersLargeTitles = true
     
     let layout = UICollectionViewFlowLayout()
-    let thirdVC = PhotoCollectionViewController(collectionViewLayout: layout)
-    thirdVC.tabBarItem.title = "Photos"
-    thirdVC.tabBarItem.image = UIImage(systemName: "photo.fill")
+    let thirdVC = UINavigationController(rootViewController: PhotoCollectionViewController(collectionViewLayout: layout))
     
-    viewControllers = [firstVC, secondVC, thirdVC]
+    thirdVC.tabBarItem.title = "Photos"
+    thirdVC.navigationItem.title = "Photos"
+    thirdVC.tabBarItem.image = UIImage(systemName: "photo.fill")
+    thirdVC.navigationBar.prefersLargeTitles = true
+    
+    viewControllers = [friendVC, groupVC, thirdVC]
   }
 }
