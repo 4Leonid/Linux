@@ -14,7 +14,6 @@ final class FriendTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Friends"
     setViews()
     fetchData()
   }
@@ -35,6 +34,8 @@ extension FriendTableViewController {
 
 extension FriendTableViewController {
   func setViews() {
+    //title = "Friend"
+    navigationController?.navigationBar.prefersLargeTitles = true 
     tableView.register(FriendCell.self, forCellReuseIdentifier: "Cell")
   }
   

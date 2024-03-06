@@ -14,7 +14,6 @@ final class GroupTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Groups"
     setViews()
     fetchData()
   }

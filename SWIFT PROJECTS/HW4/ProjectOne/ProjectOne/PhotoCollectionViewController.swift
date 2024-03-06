@@ -17,7 +17,6 @@ final class PhotoCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "Photos"
     setupCollection()
     fetchData()
   }
