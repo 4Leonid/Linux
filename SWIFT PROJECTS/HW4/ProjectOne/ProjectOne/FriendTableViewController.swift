@@ -10,26 +10,24 @@ import UIKit
 final class FriendTableViewController: UITableViewController {
   
   private let networkService = NetworkService()
-  private var friends: FriendsModel?
+  private var friends: [Friend] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Friends"
     setViews()
     fetchData()
-    setDelegates()
   }
 }
 
 extension FriendTableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let allFriends = friends?.response.items else { return 0 }
-    return allFriends.count
+    friends.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? FriendCell else { return UITableViewCell() }
-    guard let friend = friends?.response.items[indexPath.row] else { return UITableViewCell() }
+    let friend = friends[indexPath.row]
     cell.configure(friend: friend)
     return cell
   }
@@ -40,23 +38,14 @@ extension FriendTableViewController {
     tableView.register(FriendCell.self, forCellReuseIdentifier: "Cell")
   }
   
-  func setDelegates() {
-    networkService.delegate = self
-  }
-  
   func fetchData() {
-    networkService.getFriends()
+    networkService.getFriends { [weak self] friends in
+      self?.friends = friends
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
   }
 }
 
-extension FriendTableViewController: NetworkServiceDelegate {
-  func update(friends: FriendsModel) {
-    DispatchQueue.main.async {
-      self.friends = friends
-      self.tableView.reloadData()
-    }
-  }
-  
-  func update(groups: GroupsModel) {
-  }
-}
+

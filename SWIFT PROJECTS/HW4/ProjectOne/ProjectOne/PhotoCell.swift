@@ -20,21 +20,31 @@ final class PhotoCell: UICollectionViewCell {
     return element
   }()
   
-  var tap: ((UIImage) -> Void)?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     setViews()
     setConstraints()
-    setRecognaizer()
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    personImage.image = nil 
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
-  @objc func cellTap() {
-    tap?(personImage.image ?? UIImage())
+  func configure(photo: Photo) {
+    DispatchQueue.global().async {
+      guard let url = URL(string: photo.sizes.first?.url ?? ""),
+            let data = try? Data(contentsOf: url) else { return }
+      
+      DispatchQueue.main.async {
+        self.personImage.image = UIImage(data: data)
+      }
+    }
   }
 }
 
@@ -50,11 +60,6 @@ private extension PhotoCell {
       personImage.trailingAnchor.constraint(equalTo: trailingAnchor),
       personImage.bottomAnchor.constraint(equalTo: bottomAnchor),
     ])
-  }
-  
-  func setRecognaizer() {
-    let recognizer = UITapGestureRecognizer(target: self, action: #selector(cellTap))
-    addGestureRecognizer(recognizer)
   }
 }
 

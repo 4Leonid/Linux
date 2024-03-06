@@ -56,6 +56,15 @@ final class GroupCell: UITableViewCell {
   func configure(group: Group) {
     oneLabel.text = group.name
     twoLabel.text = group.description
+    
+    DispatchQueue.global().async {
+      guard let url = URL(string: group.photo ?? ""),
+            let data = try? Data(contentsOf: url) else { return }
+      
+      DispatchQueue.main.async {
+        self.groupImage.image = UIImage(data: data)
+      }
+    }
   }
 }
 

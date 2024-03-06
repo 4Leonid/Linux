@@ -60,15 +60,17 @@ extension ViewController: WKNavigationDelegate {
     let userID = params["user_id"]!
     NetworkService.token = token
     NetworkService.userID = userID
-    print(token)
-    print(userID)
     decisionHandler(.cancel)
     webView.removeFromSuperview()
-  }
-  
-  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    
     let tabBarController = TabBarController()
     tabBarController.modalPresentationStyle = .fullScreen
     present(tabBarController, animated: true)
   }
+  
+//  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//    let tabBarController = TabBarController()
+//    tabBarController.modalPresentationStyle = .fullScreen
+//    present(tabBarController, animated: true)
+//  }
 }

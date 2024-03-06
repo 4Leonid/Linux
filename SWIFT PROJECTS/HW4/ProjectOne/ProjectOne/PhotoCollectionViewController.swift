@@ -10,6 +10,7 @@ import UIKit
 final class PhotoCollectionViewController: UICollectionViewController {
   
   private let networkService = NetworkService()
+  private var photos: [Photo] = []
   
   private let numberOfItemsPerRow: CGFloat = 2
   private let interItemSpacing: CGFloat = 4
@@ -18,30 +19,36 @@ final class PhotoCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     title = "Photos"
     setupCollection()
-    networkService.getPhotos()
+    fetchData()
   }
 }
 
 extension PhotoCollectionViewController {
+  
+  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    photos.count
+  }
+  
+  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+    
+    let photo = photos[indexPath.item]
+    cell.configure(photo: photo)
+    return cell
+  }
   
   private func setupCollection() {
     collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
     collectionView.backgroundColor = .white
   }
   
-  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    6
-  }
-  
-  override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
-    cell.tap = { [weak self] image in
-      let detailVC = DetailViewController()
-      detailVC.image = image
-      self?.navigationController?.pushViewController(detailVC, animated: true)
+  private func fetchData() {
+    networkService.getPhotos { [weak self] photos in
+      self?.photos = photos
+      DispatchQueue.main.async {
+        self?.collectionView.reloadData()
+      }
     }
-    cell.backgroundColor = .systemPink
-    return cell
   }
 }
 

@@ -10,45 +10,28 @@ import UIKit
 final class GroupTableViewController: UITableViewController {
   
   private let networkService = NetworkService()
-  private var groupModel: GroupsModel? 
+  private var groups: [Group] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Groups"
     setViews()
     fetchData()
-    setDelegates()
   }
 }
 
 extension GroupTableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let groups = groupModel?.response.items else { return 0 }
-    return groups.count
+    groups.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? GroupCell else { return UITableViewCell() }
-    guard let group = groupModel?.response.items[indexPath.row] else { return UITableViewCell() }
+    let group = groups[indexPath.row]
     cell.configure(group: group)
     return cell
   }
-}
-
-extension GroupTableViewController: NetworkServiceDelegate {
-  func update(friends: FriendsModel) {
-    
-  }
-  
-  func update(groups: GroupsModel) {
-    DispatchQueue.main.async {
-      self.groupModel = groups
-      self.tableView.reloadData()
-    }
-  }
-  
-  
 }
 
 extension GroupTableViewController {
@@ -57,10 +40,11 @@ extension GroupTableViewController {
   }
   
   func fetchData() {
-    networkService.getGroups()
-  }
-  
-  func setDelegates() {
-    networkService.delegate = self
+    networkService.getGroups { [weak self] groups in
+      self?.groups = groups
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
   }
 }

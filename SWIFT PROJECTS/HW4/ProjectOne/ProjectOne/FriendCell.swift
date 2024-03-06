@@ -9,10 +9,18 @@ import UIKit
 
 final class FriendCell: UITableViewCell {
   
-  private lazy var image: UIImageView = {
+  private lazy var friendImage: UIImageView = {
     let image = UIImage(systemName: "person")
     let element = UIImageView()
     element.image = image
+    element.translatesAutoresizingMaskIntoConstraints = false
+    return element
+  }()
+  
+  private lazy var onlineCircle: UIView = {
+    let element = UIView()
+    element.backgroundColor = .gray
+    element.layer.cornerRadius = 10
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()
@@ -70,29 +78,50 @@ final class FriendCell: UITableViewCell {
   }
   
   func configure(friend: Friend) {
-    nameLabel.text = friend.firstName
+    nameLabel.text = (friend.firstName ?? "") + " " + (friend.lastName ?? "")
+    
+    if let online = friend.online {
+      let isOnline = online == 1
+      if isOnline {
+        onlineCircle.backgroundColor = .green
+      } else {
+        onlineCircle.backgroundColor = .red
+      }
+    }
+    
+    DispatchQueue.global().async {
+      guard let url = URL(string: friend.photo ?? ""),
+            let data = try? Data(contentsOf: url) else { return }
+      
+      DispatchQueue.main.async {
+        self.friendImage.image = UIImage(data: data)
+      }
+    }
   }
 }
 
 private extension FriendCell {
   func setViews() {
-    addSubview(image)
+    addSubview(friendImage)
     addSubview(nameLabel)
     addSubview(stackView)
-//    stackView.addArrangedSubview(oneLabel)
-//    stackView.addArrangedSubview(twoLabel)
-//    stackView.addArrangedSubview(threeLabel)
+    friendImage.addSubview(onlineCircle)
   }
   
   func setConstraints() {
     NSLayoutConstraint.activate([
-      image.centerYAnchor.constraint(equalTo: centerYAnchor),
-      image.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-      image.widthAnchor.constraint(equalToConstant: 50),
-      image.heightAnchor.constraint(equalTo: image.widthAnchor),
+      friendImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+      friendImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+      friendImage.widthAnchor.constraint(equalToConstant: 50),
+      friendImage.heightAnchor.constraint(equalTo: friendImage.widthAnchor),
+      
+      onlineCircle.widthAnchor.constraint(equalToConstant: 20),
+      onlineCircle.heightAnchor.constraint(equalTo: onlineCircle.widthAnchor),
+      onlineCircle.bottomAnchor.constraint(equalTo: friendImage.bottomAnchor),
+      onlineCircle.trailingAnchor.constraint(equalTo: friendImage.trailingAnchor, constant: 10),
       
       nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-      nameLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 10),
+      nameLabel.leadingAnchor.constraint(equalTo: friendImage.trailingAnchor, constant: 10),
       nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
       nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
     ])
