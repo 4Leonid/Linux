@@ -37,7 +37,6 @@ private extension ViewController {
   }
 }
 
-
 extension ViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
     guard let url = navigationResponse.response.url, url.path == "/blank.html",
@@ -67,10 +66,4 @@ extension ViewController: WKNavigationDelegate {
     tabBarController.modalPresentationStyle = .fullScreen
     present(tabBarController, animated: true)
   }
-  
-//  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//    let tabBarController = TabBarController()
-//    tabBarController.modalPresentationStyle = .fullScreen
-//    present(tabBarController, animated: true)
-//  }
 }
