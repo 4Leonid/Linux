@@ -8,8 +8,8 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    
-    private var networkService = NetworkService()
+  
+  private var networkService = NetworkService()
   
   private lazy var profileImageView: UIImageView = {
     let element = UIImageView()
@@ -24,18 +24,18 @@ final class ProfileViewController: UIViewController {
     element.translatesAutoresizingMaskIntoConstraints = false
     return element
   }()
-
-    
-    init(name: String? = nil, photo: UIImage? = nil) {
-        super.init(nibName: nil, bundle: nil)
-        nameLabel.text = name
-        profileImageView.image = photo
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+  
+  
+  init(name: String? = nil, photo: UIImage? = nil) {
+    super.init(nibName: nil, bundle: nil)
+    nameLabel.text = name
+    profileImageView.image = photo
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
@@ -43,7 +43,7 @@ final class ProfileViewController: UIViewController {
     setupConstraints()
     fetchProfile()
   }
-    
+  
   func updateData(model: User?) {
     guard let model else { return }
     DispatchQueue.global().async {
@@ -64,24 +64,23 @@ final class ProfileViewController: UIViewController {
       self?.updateData(model: user)
     }
   }
+  
+  private func setupViews() {
+    view.addSubview(profileImageView)
+    view.addSubview(nameLabel)
+  }
+  
+  private func setupConstraints() {
     
-    private func setupViews() {
-        view.addSubview(profileImageView)
-        view.addSubview(nameLabel)
-    }
-    
-    private func setupConstraints() {
-        
-        NSLayoutConstraint.activate([
-            profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor),
-            
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30),
-            nameLabel.heightAnchor.constraint(equalToConstant: 15),
-        ])
-    }
+    NSLayoutConstraint.activate([
+      profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
+      profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+      profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+      profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor),
+      
+      nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+      nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+      nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30),
+    ])
+  }
 }

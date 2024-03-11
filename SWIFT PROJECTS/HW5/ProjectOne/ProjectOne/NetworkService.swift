@@ -77,7 +77,8 @@ final class NetworkService {
       
       do {
         let decoder = JSONDecoder()
-        let user = try decoder.decode(User.self, from: data)
+        let user = try decoder.decode(UserModel.self, from: data)
+        competion(user.response.first)
       } catch {
         print(error.localizedDescription)
       }
