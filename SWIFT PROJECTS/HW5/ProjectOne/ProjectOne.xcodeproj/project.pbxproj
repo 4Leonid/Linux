@@ -25,6 +25,8 @@
 		BF5058242B962B6300D9DAE7 /* FriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5058232B962B6300D9DAE7 /* FriendsModel.swift */; };
 		BF5058262B962E5400D9DAE7 /* GroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5058252B962E5400D9DAE7 /* GroupsModel.swift */; };
 		BF5058282B962F4900D9DAE7 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5058272B962F4900D9DAE7 /* PhotosModel.swift */; };
+		BF826E9E2B9E4CFB00B763A4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF826E9D2B9E4CFB00B763A4 /* ProfileViewController.swift */; };
+		BF826EA02B9E4E1D00B763A4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF826E9F2B9E4E1D00B763A4 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		BF5058232B962B6300D9DAE7 /* FriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsModel.swift; sourceTree = "<group>"; };
 		BF5058252B962E5400D9DAE7 /* GroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsModel.swift; sourceTree = "<group>"; };
 		BF5058272B962F4900D9DAE7 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
+		BF826E9D2B9E4CFB00B763A4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BF826E9F2B9E4E1D00B763A4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				BF50581F2B961C1900D9DAE7 /* AppCode.swift */,
 				BF5057B82B8E30E300D9DAE7 /* TabBarController.swift */,
 				BF5057AE2B8E2DEE00D9DAE7 /* FriendTableViewController.swift */,
+				BF826E9D2B9E4CFB00B763A4 /* ProfileViewController.swift */,
 				BF5057B62B8E2EED00D9DAE7 /* GroupTableViewController.swift */,
 				BF5057BA2B8E37D400D9DAE7 /* PhotoCollectionViewController.swift */,
 				BF5057BE2B8E382700D9DAE7 /* DetailViewController.swift */,
@@ -94,6 +99,7 @@
 				BF5057BC2B8E37F000D9DAE7 /* PhotoCell.swift */,
 				BF5058212B962A3200D9DAE7 /* NetworkService.swift */,
 				BF5058252B962E5400D9DAE7 /* GroupsModel.swift */,
+				BF826E9F2B9E4E1D00B763A4 /* UserModel.swift */,
 				BF5058272B962F4900D9DAE7 /* PhotosModel.swift */,
 				BF5058232B962B6300D9DAE7 /* FriendsModel.swift */,
 				688D06CF2B86891F00B20248 /* Assets.xcassets */,
@@ -180,6 +186,7 @@
 				BF5057BD2B8E37F000D9DAE7 /* PhotoCell.swift in Sources */,
 				BF5057AF2B8E2DEE00D9DAE7 /* FriendTableViewController.swift in Sources */,
 				BF5057B92B8E30E300D9DAE7 /* TabBarController.swift in Sources */,
+				BF826E9E2B9E4CFB00B763A4 /* ProfileViewController.swift in Sources */,
 				688D06CB2B86890A00B20248 /* ViewController.swift in Sources */,
 				BF5057B32B8E2E4900D9DAE7 /* GroupCell.swift in Sources */,
 				BF5057B12B8E2E3D00D9DAE7 /* FriendCell.swift in Sources */,
@@ -188,6 +195,7 @@
 				BF5057B72B8E2EED00D9DAE7 /* GroupTableViewController.swift in Sources */,
 				688D06C72B86890A00B20248 /* AppDelegate.swift in Sources */,
 				BF5058222B962A3200D9DAE7 /* NetworkService.swift in Sources */,
+				BF826EA02B9E4E1D00B763A4 /* UserModel.swift in Sources */,
 				688D06C92B86890A00B20248 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
