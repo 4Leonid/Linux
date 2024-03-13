@@ -52,6 +52,7 @@ final class FriendCell: UITableViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     setViews()
     setConstraints()
+    setGesture()
   }
   
   required init?(coder: NSCoder) {
