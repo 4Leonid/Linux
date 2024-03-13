@@ -9,9 +9,6 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
   
-  private var networkService = NetworkService()
-  private var themeView = ThemeView()
-  
   private lazy var profileImageView: UIImageView = {
     let element = UIImageView()
     element.translatesAutoresizingMaskIntoConstraints = false
@@ -27,8 +24,13 @@ final class ProfileViewController: UIViewController {
     return element
   }()
   
+  private var networkService = NetworkService()
+  private var themeView = ThemeView()
+  private var isUserProfile: Bool
   
-  init(name: String? = nil, photo: UIImage? = nil) {
+  
+  init(name: String? = nil, photo: UIImage? = nil, isUserProfile: Bool) {
+    self.isUserProfile = isUserProfile
     super.init(nibName: nil, bundle: nil)
     nameLabel.text = name
     profileImageView.image = photo
@@ -62,8 +64,12 @@ final class ProfileViewController: UIViewController {
   }
   
   private func fetchProfile() {
-    networkService.getProfileInfo { [weak self] user in
-      self?.updateData(model: user)
+    if isUserProfile {
+      networkService.getProfileInfo { [weak self] user in
+        self?.updateData(model: user)
+      }
+    } else {
+      themeView.isHidden = true
     }
   }
   

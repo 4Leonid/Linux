@@ -32,7 +32,7 @@ extension FriendTableViewController {
     let friend = friends[indexPath.row]
     cell.configure(friend: friend)
     cell.tap = { [weak self] text, photo in
-      self?.navigationController?.pushViewController(ProfileViewController(name: text, photo: photo), animated: true)
+      self?.navigationController?.pushViewController(ProfileViewController(name: text, photo: photo, isUserProfile: false), animated: true)
     }
     return cell
   }
@@ -75,7 +75,7 @@ extension FriendTableViewController {
     animation.type = .reveal
     animation.duration = 3
     navigationController?.view.layer.add(animation, forKey: nil)
-    navigationController?.pushViewController(ProfileViewController(), animated: false)
+    navigationController?.pushViewController(ProfileViewController(isUserProfile: true), animated: false)
   }
   
   @objc func update() {

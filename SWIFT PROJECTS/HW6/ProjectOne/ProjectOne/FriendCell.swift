@@ -111,6 +111,7 @@ private extension FriendCell {
   
   func setGesture() {
     let recognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+    addGestureRecognizer(recognizer)
   }
   
   @objc func cellTapped() {
