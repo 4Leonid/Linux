@@ -11,6 +11,7 @@ final class GroupTableViewController: UITableViewController {
   
   private let networkService = NetworkService()
   private var groups: [Group] = []
+  private var fileCache = FileCache()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,11 +40,33 @@ extension GroupTableViewController {
   }
   
   func fetchData() {
-    networkService.getGroups { [weak self] groups in
-      self?.groups = groups
-      DispatchQueue.main.async {
-        self?.tableView.reloadData()
+    networkService.getGroups { [weak self] result in
+      switch result {
+      case .success(let groups):
+        self?.groups = groups
+        self?.fileCache.addGroups(groups: groups)
+        DispatchQueue.main.async {
+          self?.tableView.reloadData()
+        }
+      case .failure(_):
+        self?.groups = self?.fileCache.fetchGroups() ?? []
+        DispatchQueue.main.async {
+          self?.showAlert()
+        }
       }
     }
+  }
+}
+
+extension GroupTableViewController {
+  func showAlert() {
+    let date = DateHelper.getDate(date: fileCache.fetchGroupDate())
+    let alert = UIAlertController(
+      title: "Не удалось получить данные",
+      message: "Данные актуальны на \(date)",
+      preferredStyle: .alert
+    )
+    alert.addAction(UIAlertAction(title: "Закрыть", style: .default, handler: nil))
+    present(alert, animated: true, completion: nil)
   }
 }

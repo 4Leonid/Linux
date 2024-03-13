@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
   
   private var networkService = NetworkService()
+  private var themeView = ThemeView()
   
   private lazy var profileImageView: UIImageView = {
     let element = UIImageView()
@@ -19,6 +20,7 @@ final class ProfileViewController: UIViewController {
   
   private lazy var nameLabel: UILabel = {
     let element = UILabel()
+    element.textColor = Theme.currentTheme.textColor
     element.numberOfLines = 0
     element.textAlignment = .center
     element.translatesAutoresizingMaskIntoConstraints = false
@@ -68,9 +70,12 @@ final class ProfileViewController: UIViewController {
   private func setupViews() {
     view.addSubview(profileImageView)
     view.addSubview(nameLabel)
+    view.addSubview(themeView)
   }
   
   private func setupConstraints() {
+    
+    themeView.translatesAutoresizingMaskIntoConstraints = false
     
     NSLayoutConstraint.activate([
       profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
@@ -81,6 +86,11 @@ final class ProfileViewController: UIViewController {
       nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
       nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
       nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 30),
+      
+      themeView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      themeView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      themeView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30),
+      themeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
     ])
   }
 }

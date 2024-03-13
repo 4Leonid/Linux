@@ -13,6 +13,10 @@ protocol NetworkServiceDelegate: AnyObject {
 }
 
 final class NetworkService {
+  enum NetworkError: Error {
+      case dataError
+  }
+  
   private let session = URLSession.shared
   
   static var token = ""
@@ -20,34 +24,48 @@ final class NetworkService {
   
   weak var delegate: NetworkServiceDelegate?
   
-  func getFriends(complition: @escaping ([Friend]) -> Void) {
+  func getFriends(complition: @escaping (Result<[Friend], Error>) -> Void) {
     guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_50,online&access_token=\(NetworkService.token)&v=5.131") else { return }
     
     session.dataTask(with: url) { (data, _, error) in
-      guard let data else { return }
+      guard let data else {
+        complition(.failure(NetworkError.dataError))
+        return
+      }
+      
+      if let error = error {
+        complition(.failure(error))
+      }
       
       do {
         let decoder = JSONDecoder()
         let friends = try decoder.decode(FriendsModel.self, from: data)
-        complition(friends.response.items)
+        complition(.success(friends.response.items))
       } catch {
-        print(error.localizedDescription)
+        complition(.failure(error))
       }
     }.resume()
   }
   
-  func getGroups(complition: @escaping ([Group]) -> Void) {
+  func getGroups(complition: @escaping (Result<[Group], Error>) -> Void) {
     guard let url = URL(string: "https://api.vk.com/method/groups.get?access_token=\(NetworkService.token)&fields=description&v=5.131&extended=1") else { return }
     
     session.dataTask(with: url) { (data, _, error) in
-      guard let data else { return }
+      guard let data else {
+        complition(.failure(NetworkError.dataError))
+        return
+      }
+      
+      if let error = error {
+        complition(.failure(error))
+      }
       
       do {
         let decoder = JSONDecoder()
         let groups = try decoder.decode(GroupsModel.self, from: data)
-        complition(groups.response.items)
+        complition(.success(groups.response.items))
       } catch {
-        print(error.localizedDescription)
+        complition(.failure(NetworkError.dataError))
       }
     }.resume()
   }
