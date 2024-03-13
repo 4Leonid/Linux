@@ -107,4 +107,12 @@ private extension FriendCell {
       nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
     ])
   }
+  
+  func setGesture() {
+    let recognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+  }
+  
+  @objc func cellTapped() {
+    tap?(nameLabel.text, friendImage.image)
+  }
 }
