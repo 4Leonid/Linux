@@ -73,6 +73,10 @@ final class ProfileViewController: UIViewController {
     }
   }
   
+  private func setDelegates() {
+    themeView.delegate = self
+  }
+  
   private func setupViews() {
     view.addSubview(profileImageView)
     view.addSubview(nameLabel)
@@ -98,5 +102,12 @@ final class ProfileViewController: UIViewController {
       themeView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30),
       themeView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
     ])
+  }
+}
+
+extension ProfileViewController: ThemeViewDelegate {
+  func updateColor() {
+    view.backgroundColor = Theme.currentTheme.backgroundColor
+    nameLabel.textColor = Theme.currentTheme.textColor
   }
 }

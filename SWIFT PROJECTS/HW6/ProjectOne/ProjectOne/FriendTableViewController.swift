@@ -19,6 +19,7 @@ final class FriendTableViewController: UITableViewController {
     fetchFriends()
     setNavigation()
     setRefresh()
+    friends = fileCache.fetchFriends()
   }
 }
 
@@ -92,6 +93,9 @@ extension FriendTableViewController {
         DispatchQueue.main.async {
           self?.showAlert()
         }
+      }
+      DispatchQueue.main.async {
+        self?.refreshControl?.endRefreshing()
       }
     }
   }
