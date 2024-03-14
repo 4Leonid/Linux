@@ -46,6 +46,7 @@ final class ProfileViewController: UIViewController {
     setupViews()
     setupConstraints()
     fetchProfile()
+    setDelegates()
   }
   
   func updateData(model: User?) {

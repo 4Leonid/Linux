@@ -25,7 +25,7 @@ final class NetworkService {
   weak var delegate: NetworkServiceDelegate?
   
   func getFriends(complition: @escaping (Result<[Friend], Error>) -> Void) {
-    guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_50,online&access_token=\(NetworkService.token)&v=5.131") else { return }
+    guard let url = URL(string: "https://api.vk.com/method/friends.get?fields=photo_400_orig,online&access_token=\(NetworkService.token)&v=5.131") else { return }
     
     session.dataTask(with: url) { (data, _, error) in
       guard let data else {
