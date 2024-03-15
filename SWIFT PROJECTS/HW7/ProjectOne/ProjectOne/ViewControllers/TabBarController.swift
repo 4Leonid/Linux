@@ -17,8 +17,8 @@ final class TabBarController: UITabBarController {
 
 extension TabBarController {
   func setViews() {
-    
-    let friendVC = FriendTableViewController(networkService: <#NetworkServiceProtocol#>)
+    let networkService = NetworkService()
+    let friendVC = FriendTableViewController(networkService: networkService)
     let friendNav = UINavigationController(rootViewController: friendVC)
     friendVC.navigationController?.navigationBar.prefersLargeTitles = true
     friendVC.navigationItem.title = "Friends"

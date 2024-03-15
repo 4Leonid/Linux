@@ -9,14 +9,14 @@ import XCTest
 @testable import ProjectOne
 
 final class ProjectOneTests: XCTestCase {
-
+  
   private var networkService: NetworkServiceSpy!
   private var friendViewController: FriendTableViewController!
   
   override func setUp() {
     super.setUp()
     networkService = NetworkServiceSpy()
-    friendViewController = FriendTableViewController()
+    friendViewController = FriendTableViewController(networkService: networkService)
   }
   
   override func tearDown() {

@@ -15,7 +15,7 @@ final class FriendTableViewController: UITableViewController {
   
   init(networkService: NetworkServiceProtocol) {
     self.networkService = networkService
-    super.init()
+    super.init(nibName: nil, bundle: nil)
   }
   
   
