@@ -12,6 +12,8 @@
 		688D06CB2B86890A00B20248 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688D06CA2B86890A00B20248 /* ViewController.swift */; };
 		688D06D02B86891F00B20248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 688D06CF2B86891F00B20248 /* Assets.xcassets */; };
 		688D06D32B86891F00B20248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688D06D12B86891F00B20248 /* LaunchScreen.storyboard */; };
+		BF2D19072BA4484300426873 /* ProjectOneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D19062BA4484300426873 /* ProjectOneTests.swift */; };
+		BF2D19102BA4852400426873 /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2D190F2BA4852400426873 /* NetworkServiceSpy.swift */; };
 		BF5057AF2B8E2DEE00D9DAE7 /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5057AE2B8E2DEE00D9DAE7 /* FriendTableViewController.swift */; };
 		BF5057B12B8E2E3D00D9DAE7 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5057B02B8E2E3D00D9DAE7 /* FriendCell.swift */; };
 		BF5057B32B8E2E4900D9DAE7 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5057B22B8E2E4900D9DAE7 /* GroupCell.swift */; };
@@ -35,6 +37,16 @@
 		BF826F1D2BA0AC5B00B763A4 /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF826F1C2BA0AC5B00B763A4 /* FileCache.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BF2D19082BA4484300426873 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688D06BB2B86890900B20248 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 688D06C22B86890900B20248;
+			remoteInfo = ProjectOne;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		688D06C32B86890A00B20248 /* ProjectOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		688D06C62B86890A00B20248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +55,9 @@
 		688D06CF2B86891F00B20248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		688D06D22B86891F00B20248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		688D06D42B86891F00B20248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2D19042BA4484300426873 /* ProjectOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2D19062BA4484300426873 /* ProjectOneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOneTests.swift; sourceTree = "<group>"; };
+		BF2D190F2BA4852400426873 /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
 		BF5057AE2B8E2DEE00D9DAE7 /* FriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewController.swift; sourceTree = "<group>"; };
 		BF5057B02B8E2E3D00D9DAE7 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		BF5057B22B8E2E4900D9DAE7 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
@@ -74,6 +89,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF2D19012BA4484300426873 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				688D06C52B86890A00B20248 /* ProjectOne */,
+				BF2D19052BA4484300426873 /* ProjectOneTests */,
 				688D06C42B86890A00B20248 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				688D06C32B86890A00B20248 /* ProjectOne.app */,
+				BF2D19042BA4484300426873 /* ProjectOneTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +199,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BF2D19052BA4484300426873 /* ProjectOneTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF2D19062BA4484300426873 /* ProjectOneTests.swift */,
+				BF2D190F2BA4852400426873 /* NetworkServiceSpy.swift */,
+			);
+			path = ProjectOneTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +228,24 @@
 			productReference = 688D06C32B86890A00B20248 /* ProjectOne.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BF2D19032BA4484300426873 /* ProjectOneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2D190A2BA4484300426873 /* Build configuration list for PBXNativeTarget "ProjectOneTests" */;
+			buildPhases = (
+				BF2D19002BA4484300426873 /* Sources */,
+				BF2D19012BA4484300426873 /* Frameworks */,
+				BF2D19022BA4484300426873 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF2D19092BA4484300426873 /* PBXTargetDependency */,
+			);
+			name = ProjectOneTests;
+			productName = ProjectOneTests;
+			productReference = BF2D19042BA4484300426873 /* ProjectOneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,11 +253,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					688D06C22B86890900B20248 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					BF2D19032BA4484300426873 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 688D06C22B86890900B20248;
 					};
 				};
 			};
@@ -224,6 +279,7 @@
 			projectRoot = "";
 			targets = (
 				688D06C22B86890900B20248 /* ProjectOne */,
+				BF2D19032BA4484300426873 /* ProjectOneTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +291,13 @@
 			files = (
 				688D06D32B86891F00B20248 /* LaunchScreen.storyboard in Resources */,
 				688D06D02B86891F00B20248 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2D19022BA4484300426873 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +335,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF2D19002BA4484300426873 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2D19072BA4484300426873 /* ProjectOneTests.swift in Sources */,
+				BF2D19102BA4852400426873 /* NetworkServiceSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF2D19092BA4484300426873 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 688D06C22B86890900B20248 /* ProjectOne */;
+			targetProxy = BF2D19082BA4484300426873 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		688D06D12B86891F00B20248 /* LaunchScreen.storyboard */ = {
@@ -456,6 +536,55 @@
 			};
 			name = Release;
 		};
+		BF2D190B2BA4484300426873 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q9G7AMJXC6;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = leo.ProjectOneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOne.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProjectOne";
+			};
+			name = Debug;
+		};
+		BF2D190C2BA4484300426873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q9G7AMJXC6;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = leo.ProjectOneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOne.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProjectOne";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -473,6 +602,15 @@
 			buildConfigurations = (
 				688D06D82B86891F00B20248 /* Debug */,
 				688D06D92B86891F00B20248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF2D190A2BA4484300426873 /* Build configuration list for PBXNativeTarget "ProjectOneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF2D190B2BA4484300426873 /* Debug */,
+				BF2D190C2BA4484300426873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

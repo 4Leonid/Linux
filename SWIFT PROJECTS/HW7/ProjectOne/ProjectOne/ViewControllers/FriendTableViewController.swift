@@ -9,7 +9,6 @@ import UIKit
 
 final class FriendTableViewController: UITableViewController {
   
-  //private let networkService = NetworkService()
   private let networkService: NetworkServiceProtocol? = nil
   private var friends: [Friend] = []
   private var fileCache = FileCache()
