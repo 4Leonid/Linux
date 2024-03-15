@@ -9,9 +9,19 @@ import UIKit
 
 final class FriendTableViewController: UITableViewController {
   
-  private let networkService: NetworkServiceProtocol? = nil
+  private let networkService: NetworkServiceProtocol
   private var friends: [Friend] = []
   private var fileCache = FileCache()
+  
+  init(networkService: NetworkServiceProtocol) {
+    self.networkService = networkService
+    super.init()
+  }
+  
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,7 +56,6 @@ extension FriendTableViewController {
   }
   
   func fetchFriends() {
-    guard let networkService else { return }
     networkService.getFriends { [weak self] result in
       switch result {
       case .success(let friends):
@@ -81,7 +90,6 @@ extension FriendTableViewController {
   }
   
   @objc func update() {
-    guard let networkService else { return }
     networkService.getFriends { [weak self] result in
       switch result {
       case .success(let friends):

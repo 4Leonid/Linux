@@ -15,15 +15,15 @@ final class NetworkServiceSpy: NetworkServiceProtocol {
   }
   
   func getGroups(complition: @escaping (Result<[ProjectOne.Group], Error>) -> Void) {
-    <#code#>
+    
   }
   
   func getPhotos(complition: @escaping ([ProjectOne.Photo]) -> Void) {
-    <#code#>
+    
   }
   
   func getProfileInfo(competion: @escaping (ProjectOne.User?) -> Void) {
-    <#code#>
+    
   }
   
   
