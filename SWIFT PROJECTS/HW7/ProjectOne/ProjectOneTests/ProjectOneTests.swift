@@ -11,18 +11,23 @@ import XCTest
 final class ProjectOneTests: XCTestCase {
 
   private var networkService: NetworkServiceSpy!
+  private var friendViewController: FriendTableViewController!
   
   override func setUp() {
     super.setUp()
     networkService = NetworkServiceSpy()
+    friendViewController = FriendTableViewController()
   }
   
   override func tearDown() {
     networkService = nil
+    friendViewController = nil
     super.tearDown()
   }
   
   func testFriendsFetch() {
-    networkService.getFriends(complition: <#T##(Result<[Friend], Error>) -> Void#>)
+    friendViewController.fetchFriends()
+    
+    XCTAssert(networkService.isFriendCalled, "Метод вызван")
   }
 }
